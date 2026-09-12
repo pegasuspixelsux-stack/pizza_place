@@ -32,9 +32,9 @@ export function MenuEditor({
 
   return (
     <div className="rounded-3xl border border-line bg-surface p-6 sm:p-8">
-      <h2 className="text-lg font-semibold text-ink">Menu</h2>
+      <h2 className="text-lg font-semibold text-ink">Menú</h2>
       <p className="mt-1 text-sm text-ink-muted">
-        Add, edit, or remove items across every category.
+        Agregá, editá o eliminá productos en cada categoría.
       </p>
 
       <div className="mt-6 flex flex-wrap gap-2">
@@ -60,7 +60,8 @@ export function MenuEditor({
       <div className="mt-6 flex flex-col gap-4">
         {active.items.length === 0 && (
           <p className="text-sm text-ink-muted">
-            No items in {active.name} yet. Add the first one below.
+            Todavía no hay productos en {active.name}. Agregá el primero
+            abajo.
           </p>
         )}
         {active.items.map((item) => (

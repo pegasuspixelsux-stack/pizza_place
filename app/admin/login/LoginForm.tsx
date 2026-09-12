@@ -16,7 +16,7 @@ export function LoginForm() {
     <form action={formAction} className="flex flex-col gap-5">
       <div className="flex flex-col gap-1.5">
         <label htmlFor="username" className="text-sm font-medium text-ink">
-          Username
+          Usuario
         </label>
         <input
           id="username"
@@ -31,14 +31,14 @@ export function LoginForm() {
       <div className="flex flex-col gap-1.5">
         <div className="flex items-baseline justify-between">
           <label htmlFor="password" className="text-sm font-medium text-ink">
-            Password
+            Contraseña
           </label>
           <button
             type="button"
             onClick={() => setShowHelp((v) => !v)}
             className="text-xs font-medium text-ink-muted transition-colors hover:text-ink"
           >
-            Forgot password?
+            ¿Olvidaste tu contraseña?
           </button>
         </div>
         <input
@@ -53,14 +53,15 @@ export function LoginForm() {
 
       {showHelp && (
         <p className="rounded-xl border border-line bg-canvas p-3 text-xs leading-relaxed text-ink-muted">
-          There&rsquo;s no self-serve reset for this admin account. To set a
-          new password, run{" "}
+          Esta cuenta de administración no tiene un restablecimiento
+          automático. Para definir una contraseña nueva, ejecutá{" "}
           <code className="rounded bg-surface px-1 py-0.5 font-mono">
-            npm run hash-password -- &quot;new-password&quot;
+            npm run hash-password -- &quot;nueva-contraseña&quot;
           </code>{" "}
-          and update <code className="font-mono">ADMIN_PASSWORD_HASH</code>{" "}
-          in your environment variables (Vercel project settings, or{" "}
-          <code className="font-mono">.env.local</code> for local dev).
+          y actualizá <code className="font-mono">ADMIN_PASSWORD_HASH</code>{" "}
+          en tus variables de entorno (configuración del proyecto en Vercel,
+          o <code className="font-mono">.env.local</code> en desarrollo
+          local).
         </p>
       )}
 
@@ -75,7 +76,7 @@ export function LoginForm() {
         disabled={pending}
         className="mt-1 inline-flex items-center justify-center rounded-full bg-ink px-6 py-2.5 text-sm font-medium text-canvas transition-opacity duration-200 ease-out hover:opacity-90 disabled:opacity-50"
       >
-        {pending ? "Signing in…" : "Sign in"}
+        {pending ? "Iniciando sesión…" : "Iniciar sesión"}
       </button>
     </form>
   );

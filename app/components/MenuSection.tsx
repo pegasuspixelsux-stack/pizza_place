@@ -1,7 +1,7 @@
 import type { MenuCategory } from "@/lib/types";
 
 function formatPrice(price: number) {
-  return price.toLocaleString("en-US", {
+  return price.toLocaleString("es-UY", {
     style: "currency",
     currency: "USD",
     minimumFractionDigits: price % 1 === 0 ? 0 : 2,
@@ -52,9 +52,9 @@ export function MenuSection({ categories }: { categories: MenuCategory[] }) {
     <section id="menu" className="border-b border-line">
       <div className="mx-auto max-w-6xl px-6 py-20 sm:px-8 sm:py-28">
         <div className="max-w-xl">
-          <p className="text-sm font-medium tracking-wide text-accent">Menu</p>
+          <p className="text-sm font-medium tracking-wide text-accent">Menú</p>
           <h2 className="mt-3 text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
-            What we&rsquo;re serving
+            Qué estamos sirviendo
           </h2>
         </div>
 

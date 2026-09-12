@@ -3,7 +3,7 @@ import Link from "next/link";
 import { LoginForm } from "./LoginForm";
 
 export const metadata: Metadata = {
-  title: "Staff Login — Bianco Pizzeria",
+  title: "Acceso del Personal — Bianco Pizzeria",
 };
 
 export default function AdminLoginPage() {
@@ -22,10 +22,10 @@ export default function AdminLoginPage() {
             Bianco Pizzeria
           </p>
           <h1 className="mt-2 text-2xl font-semibold tracking-tight text-ink">
-            Staff sign in
+            Ingreso del personal
           </h1>
           <p className="mt-2 text-sm text-ink-muted">
-            Manage the hero, menu, and site info.
+            Gestioná la portada, el menú y la información del sitio.
           </p>
         </div>
 

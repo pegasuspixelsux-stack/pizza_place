@@ -6,7 +6,7 @@ export function SiteFooter({ footer }: { footer: FooterData }) {
       <div className="mx-auto max-w-6xl px-6 py-16 sm:px-8 sm:py-20">
         <div className="grid grid-cols-1 gap-12 sm:grid-cols-3">
           <div>
-            <h3 className="text-sm font-medium tracking-wide text-ink">Hours</h3>
+            <h3 className="text-sm font-medium tracking-wide text-ink">Horarios</h3>
             <dl className="mt-4 flex flex-col gap-2">
               {footer.hours.map((entry) => (
                 <div
@@ -21,14 +21,14 @@ export function SiteFooter({ footer }: { footer: FooterData }) {
           </div>
 
           <div>
-            <h3 className="text-sm font-medium tracking-wide text-ink">Visit</h3>
+            <h3 className="text-sm font-medium tracking-wide text-ink">Visitanos</h3>
             <p className="mt-4 text-sm leading-relaxed text-ink-muted">
               {footer.address}
             </p>
           </div>
 
           <div>
-            <h3 className="text-sm font-medium tracking-wide text-ink">Contact</h3>
+            <h3 className="text-sm font-medium tracking-wide text-ink">Contacto</h3>
             <div className="mt-4 flex flex-col gap-2 text-sm text-ink-muted">
               <a
                 href={`tel:${footer.phone.replace(/[^\d+]/g, "")}`}
@@ -49,7 +49,7 @@ export function SiteFooter({ footer }: { footer: FooterData }) {
         <div className="mt-14 flex flex-col gap-4 border-t border-line pt-8 text-xs text-ink-faint sm:flex-row sm:items-center sm:justify-between">
           <p>{footer.copyright}</p>
           <a href="/admin" className="transition-colors hover:text-ink-muted">
-            Staff login
+            Acceso del personal
           </a>
         </div>
       </div>

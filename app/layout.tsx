@@ -15,13 +15,13 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Bianco Pizzeria",
   description:
-    "Wood-fired Neapolitan-style pizza, appetizers, desserts, and drinks. See our menu, hours, and location.",
+    "Pizza napolitana a la leña, entradas, postres y bebidas. Mirá nuestro menú, horarios y ubicación.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
-      lang="en"
+      lang="es"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col font-sans">{children}</body>

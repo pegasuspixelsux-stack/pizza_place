@@ -16,7 +16,7 @@ export async function loginAction(
   const password = String(formData.get("password") ?? "");
 
   if (!username || !password) {
-    return { error: "Enter your username and password." };
+    return { error: "Ingresá tu usuario y contraseña." };
   }
 
   let isValid: boolean;
@@ -26,12 +26,12 @@ export async function loginAction(
     console.error("[admin login] credential check failed:", error);
     return {
       error:
-        "Admin login isn't configured yet. Set ADMIN_USERNAME, ADMIN_PASSWORD_HASH, and SESSION_SECRET.",
+        "El acceso de administración todavía no está configurado. Configurá ADMIN_USERNAME, ADMIN_PASSWORD_HASH y SESSION_SECRET.",
     };
   }
 
   if (!isValid) {
-    return { error: "Incorrect username or password." };
+    return { error: "Usuario o contraseña incorrectos." };
   }
 
   await createSession(username);

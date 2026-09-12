@@ -18,7 +18,7 @@ export default async function AdminDashboardLayout({
               Bianco Pizzeria
             </p>
             <p className="text-xs text-ink-muted">
-              Signed in as {session.username}
+              Sesión iniciada como {session.username}
             </p>
           </div>
           <div className="flex items-center gap-3">
@@ -27,7 +27,7 @@ export default async function AdminDashboardLayout({
               target="_blank"
               className="rounded-full border border-line px-4 py-1.5 text-sm font-medium text-ink-muted transition-colors hover:border-ink-faint hover:text-ink"
             >
-              View site
+              Ver sitio
             </Link>
             <SignOutButton />
           </div>

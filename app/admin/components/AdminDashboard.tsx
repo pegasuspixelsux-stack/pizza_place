@@ -9,9 +9,9 @@ import { FooterEditor } from "./FooterEditor";
 type Tab = "hero" | "menu" | "footer";
 
 const TABS: { id: Tab; label: string }[] = [
-  { id: "hero", label: "Hero" },
-  { id: "menu", label: "Menu" },
-  { id: "footer", label: "Footer & Contact" },
+  { id: "hero", label: "Portada" },
+  { id: "menu", label: "Menú" },
+  { id: "footer", label: "Pie de página y contacto" },
 ];
 
 export function AdminDashboard({ data }: { data: SiteData }) {
@@ -21,10 +21,10 @@ export function AdminDashboard({ data }: { data: SiteData }) {
     <div>
       <div className="mb-8">
         <h1 className="text-2xl font-semibold tracking-tight text-ink">
-          Dashboard
+          Panel
         </h1>
         <p className="mt-1 text-sm text-ink-muted">
-          Changes go live on the site as soon as you save.
+          Los cambios se publican en el sitio apenas los guardás.
         </p>
       </div>
 

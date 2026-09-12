@@ -41,17 +41,17 @@ export function AddMenuItemForm({
       key={categoryId}
       className="flex flex-col gap-4"
     >
-      <p className="text-sm font-medium text-ink">Add a new item</p>
+      <p className="text-sm font-medium text-ink">Agregar un producto nuevo</p>
       <div className="grid gap-4 sm:grid-cols-[2fr_1fr]">
-        <Field label="Name" htmlFor="new-name">
+        <Field label="Nombre" htmlFor="new-name">
           <TextInput
             id="new-name"
             name="name"
             required
-            placeholder="e.g. Margherita"
+            placeholder="Ej: Margherita"
           />
         </Field>
-        <Field label="Price (USD)" htmlFor="new-price">
+        <Field label="Precio (USD)" htmlFor="new-price">
           <TextInput
             id="new-price"
             name="price"
@@ -63,28 +63,32 @@ export function AddMenuItemForm({
           />
         </Field>
       </div>
-      <Field label="Description" htmlFor="new-description">
+      <Field label="Descripción" htmlFor="new-description">
         <TextArea
           id="new-description"
           name="description"
           rows={2}
           required
-          placeholder="A short, appetizing description"
+          placeholder="Una descripción breve y apetitosa"
         />
       </Field>
-      <Field label="Tags (comma-separated)" htmlFor="new-tags">
+      <Field label="Etiquetas (separadas por comas)" htmlFor="new-tags">
         <TextInput
           id="new-tags"
           name="tags"
-          placeholder="Vegetarian, Spicy, Gluten-Free"
+          placeholder="Vegetariano, Picante, Sin gluten"
         />
       </Field>
 
       <FormMessage error={state.error} success={state.success} />
 
       <div>
-        <PrimaryButton type="submit" pending={pending} pendingLabel="Adding…">
-          Add item
+        <PrimaryButton
+          type="submit"
+          pending={pending}
+          pendingLabel="Agregando…"
+        >
+          Agregar producto
         </PrimaryButton>
       </div>
     </form>

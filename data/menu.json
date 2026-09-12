@@ -1,39 +1,39 @@
 {
   "hero": {
-    "headline": "Wood-fired pizza, made with care.",
-    "subtitle": "Simple ingredients, honest recipes, and a 900°F oven. Bianco has been baking Neapolitan-style pies in the neighborhood since 2014.",
+    "headline": "Pizza a la leña, hecha con dedicación.",
+    "subtitle": "Ingredientes simples, recetas honestas y un horno a 480°C. Bianco elabora pizzas al estilo napolitano en el barrio desde 2014.",
     "image": "/hero-pizza.svg"
   },
   "menu": [
     {
       "id": "appetizers",
-      "name": "Appetizers",
+      "name": "Entradas",
       "items": [
         {
           "id": "app-1",
           "name": "Burrata al Forno",
-          "description": "Oven-warmed burrata, cherry tomato confit, basil oil, and grilled sourdough.",
+          "description": "Burrata tibia al horno, confit de tomates cherry, aceite de albahaca y pan de campo a la parrilla.",
           "price": 14,
-          "tags": ["Vegetarian"]
+          "tags": ["Vegetariano"]
         },
         {
           "id": "app-2",
-          "name": "Garlic Knots",
-          "description": "Hand-tied dough knots brushed with garlic butter and parmesan, served with marinara.",
+          "name": "Nudos de Ajo",
+          "description": "Nudos de masa amasados a mano, pincelados con manteca de ajo y parmesano, servidos con salsa marinara.",
           "price": 9,
-          "tags": ["Vegetarian", "Popular"]
+          "tags": ["Vegetariano", "Popular"]
         },
         {
           "id": "app-3",
-          "name": "Caprese Salad",
-          "description": "Heirloom tomatoes, fresh mozzarella, basil, and a balsamic reduction.",
+          "name": "Ensalada Caprese",
+          "description": "Tomates heirloom, mozzarella fresca, albahaca y reducción de balsámico.",
           "price": 12,
-          "tags": ["Vegetarian", "Gluten-Free"]
+          "tags": ["Vegetariano", "Sin gluten"]
         },
         {
           "id": "app-4",
-          "name": "Antipasto Board",
-          "description": "Cured meats, aged cheeses, marinated olives, roasted peppers, and crostini.",
+          "name": "Tabla de Fiambres",
+          "description": "Fiambres curados, quesos estacionados, aceitunas marinadas, morrones asados y crostinis.",
           "price": 18,
           "tags": []
         }
@@ -46,132 +46,132 @@
         {
           "id": "piz-1",
           "name": "Margherita",
-          "description": "San Marzano tomato, fresh mozzarella, basil, extra virgin olive oil.",
+          "description": "Tomate San Marzano, mozzarella fresca, albahaca y aceite de oliva extra virgen.",
           "price": 16,
-          "tags": ["Vegetarian", "Popular"]
+          "tags": ["Vegetariano", "Popular"]
         },
         {
           "id": "piz-2",
           "name": "Pepperoni",
-          "description": "Double pepperoni, low-moisture mozzarella, San Marzano tomato, oregano.",
+          "description": "Doble pepperoni, mozzarella baja en humedad, tomate San Marzano y orégano.",
           "price": 18,
           "tags": ["Popular"]
         },
         {
           "id": "piz-3",
           "name": "Quattro Formaggi",
-          "description": "Mozzarella, gorgonzola, fontina, and parmesan with a whisper of honey.",
+          "description": "Mozzarella, gorgonzola, fontina y parmesano con un toque de miel.",
           "price": 19,
-          "tags": ["Vegetarian"]
+          "tags": ["Vegetariano"]
         },
         {
           "id": "piz-4",
           "name": "Funghi e Tartufo",
-          "description": "Wild mushrooms, mozzarella, taleggio, and black truffle oil.",
+          "description": "Hongos silvestres, mozzarella, taleggio y aceite de trufa negra.",
           "price": 21,
-          "tags": ["Vegetarian", "New"]
+          "tags": ["Vegetariano", "Nuevo"]
         },
         {
           "id": "piz-5",
           "name": "Diavola",
-          "description": "Spicy soppressata, calabrian chili, mozzarella, and San Marzano tomato.",
+          "description": "Soppressata picante, chile calabrés, mozzarella y tomate San Marzano.",
           "price": 19,
-          "tags": ["Spicy"]
+          "tags": ["Picante"]
         },
         {
           "id": "piz-6",
           "name": "Vegetale",
-          "description": "Zucchini, roasted peppers, red onion, artichoke, and mozzarella.",
+          "description": "Zucchini, morrones asados, cebolla morada, alcaucil y mozzarella.",
           "price": 18,
-          "tags": ["Vegan"]
+          "tags": ["Vegano"]
         }
       ]
     },
     {
       "id": "desserts",
-      "name": "Desserts",
+      "name": "Postres",
       "items": [
         {
           "id": "des-1",
-          "name": "Tiramisu",
-          "description": "Espresso-soaked ladyfingers, mascarpone cream, and cocoa.",
+          "name": "Tiramisú",
+          "description": "Vainillas embebidas en café espresso, crema de mascarpone y cacao.",
           "price": 9,
-          "tags": ["Vegetarian"]
+          "tags": ["Vegetariano"]
         },
         {
           "id": "des-2",
           "name": "Cannoli",
-          "description": "Crisp shells filled with sweet ricotta and chocolate chips.",
+          "description": "Canutos crocantes rellenos de ricota dulce y chips de chocolate.",
           "price": 8,
-          "tags": ["Vegetarian"]
+          "tags": ["Vegetariano"]
         },
         {
           "id": "des-3",
           "name": "Affogato",
-          "description": "Vanilla gelato drowned in a shot of hot espresso.",
+          "description": "Helado de vainilla bañado con un shot de espresso caliente.",
           "price": 7,
-          "tags": ["Vegetarian", "Gluten-Free"]
+          "tags": ["Vegetariano", "Sin gluten"]
         },
         {
           "id": "des-4",
-          "name": "Nutella Calzone",
-          "description": "Folded wood-fired dough with warm Nutella and powdered sugar.",
+          "name": "Calzone de Nutella",
+          "description": "Masa a la leña doblada, rellena con Nutella tibia y espolvoreada con azúcar impalpable.",
           "price": 10,
-          "tags": ["Vegetarian", "Popular"]
+          "tags": ["Vegetariano", "Popular"]
         }
       ]
     },
     {
       "id": "drinks",
-      "name": "Drinks",
+      "name": "Bebidas",
       "items": [
         {
           "id": "drk-1",
           "name": "San Pellegrino",
-          "description": "Sparkling natural mineral water, 500ml.",
+          "description": "Agua mineral natural con gas, 500ml.",
           "price": 4,
-          "tags": ["Vegan", "Gluten-Free"]
+          "tags": ["Vegano", "Sin gluten"]
         },
         {
           "id": "drk-2",
-          "name": "Italian Soda",
-          "description": "House-made syrup with soda water. Ask about today's flavor.",
+          "name": "Soda Italiana",
+          "description": "Jarabe casero con soda. Consultá el sabor del día.",
           "price": 5,
-          "tags": ["Vegan", "Gluten-Free"]
+          "tags": ["Vegano", "Sin gluten"]
         },
         {
           "id": "drk-3",
-          "name": "House Red Wine",
-          "description": "A rotating Italian red by the glass, selected by our sommelier.",
+          "name": "Vino Tinto de la Casa",
+          "description": "Un tinto italiano rotativo por copa, elegido por nuestro sommelier.",
           "price": 11,
           "tags": []
         },
         {
           "id": "drk-4",
-          "name": "Craft Beer",
-          "description": "Rotating local draft. Ask your server for today's pour.",
+          "name": "Cerveza Artesanal",
+          "description": "Chopp local rotativo. Consultale a tu mozo cuál es la de hoy.",
           "price": 7,
           "tags": []
         },
         {
           "id": "drk-5",
           "name": "Espresso",
-          "description": "Double shot, pulled to order.",
+          "description": "Doble shot, preparado al momento.",
           "price": 3,
-          "tags": ["Vegan", "Gluten-Free"]
+          "tags": ["Vegano", "Sin gluten"]
         }
       ]
     }
   ],
   "footer": {
     "hours": [
-      { "days": "Monday – Thursday", "time": "11:00 AM – 9:00 PM" },
-      { "days": "Friday – Saturday", "time": "11:00 AM – 10:00 PM" },
-      { "days": "Sunday", "time": "12:00 PM – 8:00 PM" }
+      { "days": "Lunes a jueves", "time": "11:00 – 21:00" },
+      { "days": "Viernes y sábado", "time": "11:00 – 22:00" },
+      { "days": "Domingo", "time": "12:00 – 20:00" }
     ],
-    "address": "214 Elm Street, Portland, OR 97201",
-    "phone": "(503) 555-0192",
-    "email": "hello@biancopizzeria.com",
-    "copyright": "© 2026 Bianco Pizzeria. All rights reserved."
+    "address": "Bulevar España 1234, Montevideo, 11300",
+    "phone": "+598 2712 3456",
+    "email": "hola@biancopizzeria.com.uy",
+    "copyright": "© 2026 Bianco Pizzeria. Todos los derechos reservados."
   }
 }

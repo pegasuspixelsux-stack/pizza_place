@@ -25,13 +25,13 @@ export function Hero({ hero }: { hero: HeroData }) {
                 href="#menu"
                 className="inline-flex items-center justify-center rounded-full bg-ink px-7 py-3 text-sm font-medium text-canvas transition-all duration-200 ease-out hover:-translate-y-0.5 hover:opacity-90 active:translate-y-0"
               >
-                View the menu
+                Ver el menú
               </a>
               <a
                 href="#footer"
                 className="inline-flex items-center justify-center rounded-full border border-line px-7 py-3 text-sm font-medium text-ink transition-all duration-200 ease-out hover:-translate-y-0.5 hover:border-ink-faint active:translate-y-0"
               >
-                Hours &amp; location
+                Horarios y ubicación
               </a>
             </div>
           </div>
@@ -43,13 +43,13 @@ export function Hero({ hero }: { hero: HeroData }) {
               // eslint-disable-next-line @next/next/no-img-element
               <img
                 src={hero.image}
-                alt="A wood-fired pizza, top-down view"
+                alt="Una pizza a la leña, vista desde arriba"
                 className="h-full w-full object-cover"
               />
             ) : (
               <Image
                 src={hero.image}
-                alt="A wood-fired pizza, top-down view"
+                alt="Una pizza a la leña, vista desde arriba"
                 fill
                 sizes="(min-width: 1024px) 420px, 80vw"
                 className="object-cover"

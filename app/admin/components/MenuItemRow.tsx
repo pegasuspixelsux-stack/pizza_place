@@ -50,7 +50,11 @@ export function MenuItemRow({
   );
 
   function handleDelete() {
-    if (!window.confirm(`Delete "${item.name}"? This can't be undone.`)) {
+    if (
+      !window.confirm(
+        `¿Eliminar "${item.name}"? Esta acción no se puede deshacer.`
+      )
+    ) {
       return;
     }
     startDeleteTransition(async () => {
@@ -66,7 +70,7 @@ export function MenuItemRow({
         className="flex flex-col gap-4 rounded-2xl border border-line bg-canvas p-5"
       >
         <div className="grid gap-4 sm:grid-cols-[2fr_1fr]">
-          <Field label="Name" htmlFor={`name-${item.id}`}>
+          <Field label="Nombre" htmlFor={`name-${item.id}`}>
             <TextInput
               id={`name-${item.id}`}
               name="name"
@@ -74,7 +78,7 @@ export function MenuItemRow({
               required
             />
           </Field>
-          <Field label="Price (USD)" htmlFor={`price-${item.id}`}>
+          <Field label="Precio (USD)" htmlFor={`price-${item.id}`}>
             <TextInput
               id={`price-${item.id}`}
               name="price"
@@ -86,7 +90,7 @@ export function MenuItemRow({
             />
           </Field>
         </div>
-        <Field label="Description" htmlFor={`description-${item.id}`}>
+        <Field label="Descripción" htmlFor={`description-${item.id}`}>
           <TextArea
             id={`description-${item.id}`}
             name="description"
@@ -95,12 +99,15 @@ export function MenuItemRow({
             required
           />
         </Field>
-        <Field label="Tags (comma-separated)" htmlFor={`tags-${item.id}`}>
+        <Field
+          label="Etiquetas (separadas por comas)"
+          htmlFor={`tags-${item.id}`}
+        >
           <TextInput
             id={`tags-${item.id}`}
             name="tags"
             defaultValue={item.tags?.join(", ")}
-            placeholder="Vegetarian, Spicy, Gluten-Free"
+            placeholder="Vegetariano, Picante, Sin gluten"
           />
         </Field>
 
@@ -108,10 +115,10 @@ export function MenuItemRow({
 
         <div className="flex gap-3">
           <PrimaryButton type="submit" pending={pending}>
-            Save
+            Guardar
           </PrimaryButton>
           <SecondaryButton type="button" onClick={() => setEditing(false)}>
-            Cancel
+            Cancelar
           </SecondaryButton>
         </div>
       </form>
@@ -149,7 +156,7 @@ export function MenuItemRow({
           onClick={() => setEditing(true)}
           className="rounded-full border border-line px-3.5 py-1.5 text-xs font-medium text-ink-muted transition-colors hover:border-ink-faint hover:text-ink"
         >
-          Edit
+          Editar
         </button>
         <button
           type="button"
@@ -157,7 +164,7 @@ export function MenuItemRow({
           disabled={isDeleting}
           className="rounded-full border border-line px-3.5 py-1.5 text-xs font-medium text-ink-muted transition-colors hover:border-accent hover:text-accent disabled:opacity-50"
         >
-          {isDeleting ? "Deleting…" : "Delete"}
+          {isDeleting ? "Eliminando…" : "Eliminar"}
         </button>
       </div>
     </div>

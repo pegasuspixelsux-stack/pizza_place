@@ -3,7 +3,7 @@ import { getSiteData } from "@/lib/data";
 import { AdminDashboard } from "../components/AdminDashboard";
 
 export const metadata: Metadata = {
-  title: "Admin Dashboard — Bianco Pizzeria",
+  title: "Panel de Administración — Bianco Pizzeria",
 };
 
 export default async function AdminPage() {

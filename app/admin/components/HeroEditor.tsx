@@ -43,15 +43,16 @@ export function HeroEditor({ hero: initialHero }: { hero: HeroData }) {
 
   return (
     <div className="rounded-3xl border border-line bg-surface p-6 sm:p-8">
-      <h2 className="text-lg font-semibold text-ink">Hero section</h2>
+      <h2 className="text-lg font-semibold text-ink">Sección de portada</h2>
       <p className="mt-1 text-sm text-ink-muted">
-        This is the first thing visitors see on the homepage.
+        Esto es lo primero que ven las personas al entrar a la página de
+        inicio.
       </p>
 
       <form action={formAction} className="mt-6 flex flex-col gap-6">
         <div className="grid gap-6 sm:grid-cols-[1fr_180px]">
           <div className="flex flex-col gap-5">
-            <Field label="Headline" htmlFor="headline">
+            <Field label="Título" htmlFor="headline">
               <TextInput
                 id="headline"
                 name="headline"
@@ -61,7 +62,7 @@ export function HeroEditor({ hero: initialHero }: { hero: HeroData }) {
                 maxLength={140}
               />
             </Field>
-            <Field label="Subtitle" htmlFor="subtitle">
+            <Field label="Subtítulo" htmlFor="subtitle">
               <TextArea
                 id="subtitle"
                 name="subtitle"
@@ -74,26 +75,26 @@ export function HeroEditor({ hero: initialHero }: { hero: HeroData }) {
             </Field>
           </div>
 
-          <Field label="Hero image" htmlFor="image">
+          <Field label="Imagen de portada" htmlFor="image">
             <div className="relative aspect-square w-full overflow-hidden rounded-2xl border border-line bg-canvas">
               {preview ? (
                 // eslint-disable-next-line @next/next/no-img-element -- local object URL preview
                 <img
                   src={preview}
-                  alt="New hero image preview"
+                  alt="Vista previa de la nueva imagen"
                   className="h-full w-full object-cover"
                 />
               ) : hero.image.endsWith(".svg") ? (
                 // eslint-disable-next-line @next/next/no-img-element -- vector asset
                 <img
                   src={hero.image}
-                  alt="Current hero image"
+                  alt="Imagen de portada actual"
                   className="h-full w-full object-cover"
                 />
               ) : (
                 <Image
                   src={hero.image}
-                  alt="Current hero image"
+                  alt="Imagen de portada actual"
                   fill
                   className="object-cover"
                 />
@@ -115,7 +116,7 @@ export function HeroEditor({ hero: initialHero }: { hero: HeroData }) {
 
         <div>
           <PrimaryButton type="submit" pending={pending}>
-            Save hero section
+            Guardar sección de portada
           </PrimaryButton>
         </div>
       </form>
