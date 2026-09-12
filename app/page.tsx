@@ -9,7 +9,7 @@ export default async function Home() {
 
   return (
     <div className="flex flex-1 flex-col">
-      <Hero hero={data.hero} />
+      <Hero hero={data.hero} hours={data.footer.hours} />
       <MenuSection categories={data.menu} />
       <SiteFooter footer={data.footer} />
       <WhatsAppButton whatsapp={data.footer.whatsapp} />

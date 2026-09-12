@@ -1,11 +1,21 @@
 import Image from "next/image";
-import type { HeroData } from "@/lib/types";
+import { isRestaurantOpenNow } from "@/lib/openStatus";
+import type { FooterHours, HeroData } from "@/lib/types";
+import { OpenStatusBadge } from "./OpenStatusBadge";
 
 function isSvg(src: string) {
   return src.split("?")[0].toLowerCase().endsWith(".svg");
 }
 
-export function Hero({ hero }: { hero: HeroData }) {
+export function Hero({
+  hero,
+  hours,
+}: {
+  hero: HeroData;
+  hours: FooterHours[];
+}) {
+  const initialOpen = isRestaurantOpenNow(hours);
+
   return (
     <section className="border-b border-line">
       <div className="mx-auto max-w-6xl px-6 pt-5 pb-16 sm:px-8 sm:py-28 lg:py-32">
@@ -36,26 +46,29 @@ export function Hero({ hero }: { hero: HeroData }) {
             </div>
           </div>
 
-          <div className="relative order-first mx-auto aspect-square w-full max-w-md overflow-hidden rounded-[2rem] lg:order-none">
-            {isSvg(hero.image) ? (
-              // Vector illustrations don't benefit from next/image's
-              // raster optimization pipeline.
-              // eslint-disable-next-line @next/next/no-img-element
-              <img
-                src={hero.image}
-                alt="Una pizza a la leña, vista desde arriba"
-                className="h-full w-full object-cover"
-              />
-            ) : (
-              <Image
-                src={hero.image}
-                alt="Una pizza a la leña, vista desde arriba"
-                fill
-                sizes="(min-width: 1024px) 420px, 80vw"
-                className="object-cover"
-                priority
-              />
-            )}
+          <div className="order-first flex flex-col items-center gap-4 lg:order-none">
+            <div className="relative aspect-square w-full max-w-md overflow-hidden rounded-[2rem]">
+              {isSvg(hero.image) ? (
+                // Vector illustrations don't benefit from next/image's
+                // raster optimization pipeline.
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
+                  src={hero.image}
+                  alt="Una pizza a la leña, vista desde arriba"
+                  className="h-full w-full object-cover"
+                />
+              ) : (
+                <Image
+                  src={hero.image}
+                  alt="Una pizza a la leña, vista desde arriba"
+                  fill
+                  sizes="(min-width: 1024px) 420px, 80vw"
+                  className="object-cover"
+                  priority
+                />
+              )}
+            </div>
+            <OpenStatusBadge hours={hours} initialOpen={initialOpen} />
           </div>
         </div>
       </div>
