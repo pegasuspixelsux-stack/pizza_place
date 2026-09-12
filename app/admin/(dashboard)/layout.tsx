@@ -1,6 +1,5 @@
-import Link from "next/link";
 import { verifySession } from "@/lib/auth/dal";
-import { SignOutButton } from "../SignOutButton";
+import { HeaderMenu } from "../HeaderMenu";
 
 export default async function AdminDashboardLayout({
   children,
@@ -21,16 +20,7 @@ export default async function AdminDashboardLayout({
               Sesión iniciada como {session.username}
             </p>
           </div>
-          <div className="flex items-center gap-3">
-            <Link
-              href="/"
-              target="_blank"
-              className="rounded-full border border-line px-4 py-1.5 text-sm font-medium text-ink-muted transition-colors hover:border-ink-faint hover:text-ink"
-            >
-              Ver sitio
-            </Link>
-            <SignOutButton />
-          </div>
+          <HeaderMenu />
         </div>
       </header>
 
