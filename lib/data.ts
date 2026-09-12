@@ -47,7 +47,13 @@ export async function getSiteData(): Promise<SiteData> {
     try {
       const url = await findDataBlobUrl();
       if (url) {
-        const res = await fetch(url, { cache: "no-store" });
+        // Vercel Blob's CDN can briefly serve a stale copy of an
+        // overwritten object at the same URL. A cache-busting query param
+        // forces a fresh fetch instead of a stale edge-cached response,
+        // which matters here because every save does a read-modify-write.
+        const res = await fetch(`${url}?t=${Date.now()}`, {
+          cache: "no-store",
+        });
         if (res.ok) {
           return (await res.json()) as SiteData;
         }
