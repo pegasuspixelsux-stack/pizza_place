@@ -1,0 +1,177 @@
+{
+  "hero": {
+    "headline": "Wood-fired pizza, made with care.",
+    "subtitle": "Simple ingredients, honest recipes, and a 900°F oven. Bianco has been baking Neapolitan-style pies in the neighborhood since 2014.",
+    "image": "/hero-pizza.svg"
+  },
+  "menu": [
+    {
+      "id": "appetizers",
+      "name": "Appetizers",
+      "items": [
+        {
+          "id": "app-1",
+          "name": "Burrata al Forno",
+          "description": "Oven-warmed burrata, cherry tomato confit, basil oil, and grilled sourdough.",
+          "price": 14,
+          "tags": ["Vegetarian"]
+        },
+        {
+          "id": "app-2",
+          "name": "Garlic Knots",
+          "description": "Hand-tied dough knots brushed with garlic butter and parmesan, served with marinara.",
+          "price": 9,
+          "tags": ["Vegetarian", "Popular"]
+        },
+        {
+          "id": "app-3",
+          "name": "Caprese Salad",
+          "description": "Heirloom tomatoes, fresh mozzarella, basil, and a balsamic reduction.",
+          "price": 12,
+          "tags": ["Vegetarian", "Gluten-Free"]
+        },
+        {
+          "id": "app-4",
+          "name": "Antipasto Board",
+          "description": "Cured meats, aged cheeses, marinated olives, roasted peppers, and crostini.",
+          "price": 18,
+          "tags": []
+        }
+      ]
+    },
+    {
+      "id": "pizzas",
+      "name": "Pizzas",
+      "items": [
+        {
+          "id": "piz-1",
+          "name": "Margherita",
+          "description": "San Marzano tomato, fresh mozzarella, basil, extra virgin olive oil.",
+          "price": 16,
+          "tags": ["Vegetarian", "Popular"]
+        },
+        {
+          "id": "piz-2",
+          "name": "Pepperoni",
+          "description": "Double pepperoni, low-moisture mozzarella, San Marzano tomato, oregano.",
+          "price": 18,
+          "tags": ["Popular"]
+        },
+        {
+          "id": "piz-3",
+          "name": "Quattro Formaggi",
+          "description": "Mozzarella, gorgonzola, fontina, and parmesan with a whisper of honey.",
+          "price": 19,
+          "tags": ["Vegetarian"]
+        },
+        {
+          "id": "piz-4",
+          "name": "Funghi e Tartufo",
+          "description": "Wild mushrooms, mozzarella, taleggio, and black truffle oil.",
+          "price": 21,
+          "tags": ["Vegetarian", "New"]
+        },
+        {
+          "id": "piz-5",
+          "name": "Diavola",
+          "description": "Spicy soppressata, calabrian chili, mozzarella, and San Marzano tomato.",
+          "price": 19,
+          "tags": ["Spicy"]
+        },
+        {
+          "id": "piz-6",
+          "name": "Vegetale",
+          "description": "Zucchini, roasted peppers, red onion, artichoke, and mozzarella.",
+          "price": 18,
+          "tags": ["Vegan"]
+        }
+      ]
+    },
+    {
+      "id": "desserts",
+      "name": "Desserts",
+      "items": [
+        {
+          "id": "des-1",
+          "name": "Tiramisu",
+          "description": "Espresso-soaked ladyfingers, mascarpone cream, and cocoa.",
+          "price": 9,
+          "tags": ["Vegetarian"]
+        },
+        {
+          "id": "des-2",
+          "name": "Cannoli",
+          "description": "Crisp shells filled with sweet ricotta and chocolate chips.",
+          "price": 8,
+          "tags": ["Vegetarian"]
+        },
+        {
+          "id": "des-3",
+          "name": "Affogato",
+          "description": "Vanilla gelato drowned in a shot of hot espresso.",
+          "price": 7,
+          "tags": ["Vegetarian", "Gluten-Free"]
+        },
+        {
+          "id": "des-4",
+          "name": "Nutella Calzone",
+          "description": "Folded wood-fired dough with warm Nutella and powdered sugar.",
+          "price": 10,
+          "tags": ["Vegetarian", "Popular"]
+        }
+      ]
+    },
+    {
+      "id": "drinks",
+      "name": "Drinks",
+      "items": [
+        {
+          "id": "drk-1",
+          "name": "San Pellegrino",
+          "description": "Sparkling natural mineral water, 500ml.",
+          "price": 4,
+          "tags": ["Vegan", "Gluten-Free"]
+        },
+        {
+          "id": "drk-2",
+          "name": "Italian Soda",
+          "description": "House-made syrup with soda water. Ask about today's flavor.",
+          "price": 5,
+          "tags": ["Vegan", "Gluten-Free"]
+        },
+        {
+          "id": "drk-3",
+          "name": "House Red Wine",
+          "description": "A rotating Italian red by the glass, selected by our sommelier.",
+          "price": 11,
+          "tags": []
+        },
+        {
+          "id": "drk-4",
+          "name": "Craft Beer",
+          "description": "Rotating local draft. Ask your server for today's pour.",
+          "price": 7,
+          "tags": []
+        },
+        {
+          "id": "drk-5",
+          "name": "Espresso",
+          "description": "Double shot, pulled to order.",
+          "price": 3,
+          "tags": ["Vegan", "Gluten-Free"]
+        }
+      ]
+    }
+  ],
+  "footer": {
+    "hours": [
+      { "days": "Monday – Thursday", "time": "11:00 AM – 9:00 PM" },
+      { "days": "Friday – Saturday", "time": "11:00 AM – 10:00 PM" },
+      { "days": "Sunday", "time": "12:00 PM – 8:00 PM" }
+    ],
+    "address": "214 Elm Street, Portland, OR 97201",
+    "phone": "(503) 555-0192",
+    "email": "hello@biancopizzeria.com",
+    "copyright": "© 2026 Bianco Pizzeria. All rights reserved."
+  }
+}

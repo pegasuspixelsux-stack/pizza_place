@@ -32,6 +32,12 @@ yarn-error.log*
 
 # env files (can opt-in for committing if needed)
 .env*
+!.env.example
+
+# local-dev fallback for uploaded images (see lib/data.ts) — not used when
+# BLOB_READ_WRITE_TOKEN is configured
+/public/uploads/*
+!/public/uploads/.gitkeep
 
 # vercel
 .vercel
