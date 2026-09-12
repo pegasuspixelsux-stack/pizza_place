@@ -36,29 +36,26 @@ export function Hero({ hero }: { hero: HeroData }) {
             </div>
           </div>
 
-          <div className="relative mx-auto aspect-square w-full max-w-md">
-            <div className="absolute inset-0 rounded-[2.5rem] bg-surface shadow-[0_1px_2px_rgba(0,0,0,0.04),0_20px_60px_-20px_rgba(0,0,0,0.18)]" />
-            <div className="absolute inset-6 overflow-hidden rounded-[2rem]">
-              {isSvg(hero.image) ? (
-                // Vector illustrations don't benefit from next/image's
-                // raster optimization pipeline.
-                // eslint-disable-next-line @next/next/no-img-element
-                <img
-                  src={hero.image}
-                  alt="A wood-fired pizza, top-down view"
-                  className="h-full w-full object-cover"
-                />
-              ) : (
-                <Image
-                  src={hero.image}
-                  alt="A wood-fired pizza, top-down view"
-                  fill
-                  sizes="(min-width: 1024px) 420px, 80vw"
-                  className="object-cover"
-                  priority
-                />
-              )}
-            </div>
+          <div className="relative order-first mx-auto aspect-square w-full max-w-md overflow-hidden rounded-[2rem] lg:order-none">
+            {isSvg(hero.image) ? (
+              // Vector illustrations don't benefit from next/image's
+              // raster optimization pipeline.
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                src={hero.image}
+                alt="A wood-fired pizza, top-down view"
+                className="h-full w-full object-cover"
+              />
+            ) : (
+              <Image
+                src={hero.image}
+                alt="A wood-fired pizza, top-down view"
+                fill
+                sizes="(min-width: 1024px) 420px, 80vw"
+                className="object-cover"
+                priority
+              />
+            )}
           </div>
         </div>
       </div>
