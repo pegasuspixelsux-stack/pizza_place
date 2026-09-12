@@ -1,6 +1,67 @@
 @import "tailwindcss";
 
 :root {
+  /* Brand palette (warm ember/rust tones) */
+  --color-coffee-bean-50: #feece6;
+  --color-coffee-bean-100: #fddace;
+  --color-coffee-bean-200: #fcb49c;
+  --color-coffee-bean-300: #fa8f6b;
+  --color-coffee-bean-400: #f96939;
+  --color-coffee-bean-500: #f74408;
+  --color-coffee-bean-600: #c63606;
+  --color-coffee-bean-700: #942905;
+  --color-coffee-bean-800: #631b03;
+  --color-coffee-bean-900: #310e02;
+  --color-coffee-bean-950: #230901;
+
+  --color-dark-garnet-50: #fdebe7;
+  --color-dark-garnet-100: #fbd7d0;
+  --color-dark-garnet-200: #f7afa1;
+  --color-dark-garnet-300: #f48771;
+  --color-dark-garnet-400: #f05f42;
+  --color-dark-garnet-500: #ec3713;
+  --color-dark-garnet-600: #bd2c0f;
+  --color-dark-garnet-700: #8e210b;
+  --color-dark-garnet-800: #5e1608;
+  --color-dark-garnet-900: #2f0b04;
+  --color-dark-garnet-950: #210803;
+
+  --color-oxblood-50: #fdeae7;
+  --color-oxblood-100: #fbd5d0;
+  --color-oxblood-200: #f7aba1;
+  --color-oxblood-300: #f48171;
+  --color-oxblood-400: #f05742;
+  --color-oxblood-500: #ec2c13;
+  --color-oxblood-600: #bd240f;
+  --color-oxblood-700: #8e1b0b;
+  --color-oxblood-800: #5e1208;
+  --color-oxblood-900: #2f0904;
+  --color-oxblood-950: #210603;
+
+  --color-rusty-spice-50: #feede7;
+  --color-rusty-spice-100: #fddbce;
+  --color-rusty-spice-200: #fbb69d;
+  --color-rusty-spice-300: #f9926c;
+  --color-rusty-spice-400: #f76d3b;
+  --color-rusty-spice-500: #f5490a;
+  --color-rusty-spice-600: #c43a08;
+  --color-rusty-spice-700: #932c06;
+  --color-rusty-spice-800: #621d04;
+  --color-rusty-spice-900: #310f02;
+  --color-rusty-spice-950: #220a01;
+
+  --color-orange-50: #fef6e7;
+  --color-orange-100: #fdedce;
+  --color-orange-200: #fbda9d;
+  --color-orange-300: #f9c86c;
+  --color-orange-400: #f7b53b;
+  --color-orange-500: #f5a30a;
+  --color-orange-600: #c48208;
+  --color-orange-700: #936206;
+  --color-orange-800: #624104;
+  --color-orange-900: #312102;
+  --color-orange-950: #221701;
+
   --color-canvas: #faf9f7;
   --color-surface: #ffffff;
   --color-track: #eeece7;
@@ -9,11 +70,71 @@
   --color-ink-faint: #9a9a9f;
   --color-line: #e9e7e2;
   --color-hairline: #e9e7e2;
-  --color-accent: #c1440e;
-  --color-accent-ink: #fff7f2;
+  --color-accent: var(--color-rusty-spice-600);
+  --color-accent-ink: var(--color-rusty-spice-50);
 }
 
 @theme inline {
+  --color-coffee-bean-50: var(--color-coffee-bean-50);
+  --color-coffee-bean-100: var(--color-coffee-bean-100);
+  --color-coffee-bean-200: var(--color-coffee-bean-200);
+  --color-coffee-bean-300: var(--color-coffee-bean-300);
+  --color-coffee-bean-400: var(--color-coffee-bean-400);
+  --color-coffee-bean-500: var(--color-coffee-bean-500);
+  --color-coffee-bean-600: var(--color-coffee-bean-600);
+  --color-coffee-bean-700: var(--color-coffee-bean-700);
+  --color-coffee-bean-800: var(--color-coffee-bean-800);
+  --color-coffee-bean-900: var(--color-coffee-bean-900);
+  --color-coffee-bean-950: var(--color-coffee-bean-950);
+
+  --color-dark-garnet-50: var(--color-dark-garnet-50);
+  --color-dark-garnet-100: var(--color-dark-garnet-100);
+  --color-dark-garnet-200: var(--color-dark-garnet-200);
+  --color-dark-garnet-300: var(--color-dark-garnet-300);
+  --color-dark-garnet-400: var(--color-dark-garnet-400);
+  --color-dark-garnet-500: var(--color-dark-garnet-500);
+  --color-dark-garnet-600: var(--color-dark-garnet-600);
+  --color-dark-garnet-700: var(--color-dark-garnet-700);
+  --color-dark-garnet-800: var(--color-dark-garnet-800);
+  --color-dark-garnet-900: var(--color-dark-garnet-900);
+  --color-dark-garnet-950: var(--color-dark-garnet-950);
+
+  --color-oxblood-50: var(--color-oxblood-50);
+  --color-oxblood-100: var(--color-oxblood-100);
+  --color-oxblood-200: var(--color-oxblood-200);
+  --color-oxblood-300: var(--color-oxblood-300);
+  --color-oxblood-400: var(--color-oxblood-400);
+  --color-oxblood-500: var(--color-oxblood-500);
+  --color-oxblood-600: var(--color-oxblood-600);
+  --color-oxblood-700: var(--color-oxblood-700);
+  --color-oxblood-800: var(--color-oxblood-800);
+  --color-oxblood-900: var(--color-oxblood-900);
+  --color-oxblood-950: var(--color-oxblood-950);
+
+  --color-rusty-spice-50: var(--color-rusty-spice-50);
+  --color-rusty-spice-100: var(--color-rusty-spice-100);
+  --color-rusty-spice-200: var(--color-rusty-spice-200);
+  --color-rusty-spice-300: var(--color-rusty-spice-300);
+  --color-rusty-spice-400: var(--color-rusty-spice-400);
+  --color-rusty-spice-500: var(--color-rusty-spice-500);
+  --color-rusty-spice-600: var(--color-rusty-spice-600);
+  --color-rusty-spice-700: var(--color-rusty-spice-700);
+  --color-rusty-spice-800: var(--color-rusty-spice-800);
+  --color-rusty-spice-900: var(--color-rusty-spice-900);
+  --color-rusty-spice-950: var(--color-rusty-spice-950);
+
+  --color-orange-50: var(--color-orange-50);
+  --color-orange-100: var(--color-orange-100);
+  --color-orange-200: var(--color-orange-200);
+  --color-orange-300: var(--color-orange-300);
+  --color-orange-400: var(--color-orange-400);
+  --color-orange-500: var(--color-orange-500);
+  --color-orange-600: var(--color-orange-600);
+  --color-orange-700: var(--color-orange-700);
+  --color-orange-800: var(--color-orange-800);
+  --color-orange-900: var(--color-orange-900);
+  --color-orange-950: var(--color-orange-950);
+
   --color-canvas: var(--color-canvas);
   --color-surface: var(--color-surface);
   --color-track: var(--color-track);
@@ -38,8 +159,8 @@
     --color-ink-faint: #6b6b70;
     --color-line: #2a2a2d;
     --color-hairline: #2a2a2d;
-    --color-accent: #e2703a;
-    --color-accent-ink: #1c0f08;
+    --color-accent: var(--color-rusty-spice-400);
+    --color-accent-ink: var(--color-rusty-spice-950);
   }
 }
 
