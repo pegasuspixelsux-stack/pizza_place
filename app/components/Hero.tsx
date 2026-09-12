@@ -47,7 +47,7 @@ export function Hero({
           </div>
 
           <div className="order-first flex flex-col items-center gap-4 lg:order-none">
-            <div className="relative aspect-square w-full max-w-md overflow-hidden rounded-[2rem]">
+            <div className="relative -mx-6 aspect-square w-[calc(100%+3rem)] overflow-hidden rounded-none sm:mx-0 sm:w-full sm:max-w-md sm:rounded-[2rem]">
               {isSvg(hero.image) ? (
                 // Vector illustrations don't benefit from next/image's
                 // raster optimization pipeline.
@@ -62,7 +62,7 @@ export function Hero({
                   src={hero.image}
                   alt="Una pizza a la leña, vista desde arriba"
                   fill
-                  sizes="(min-width: 1024px) 420px, 80vw"
+                  sizes="(min-width: 1024px) 420px, 100vw"
                   className="object-cover"
                   priority
                 />
