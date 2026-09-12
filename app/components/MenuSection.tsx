@@ -3,7 +3,7 @@ import type { MenuCategory } from "@/lib/types";
 function formatPrice(price: number) {
   return price.toLocaleString("es-UY", {
     style: "currency",
-    currency: "USD",
+    currency: "UYU",
     minimumFractionDigits: price % 1 === 0 ? 0 : 2,
   });
 }

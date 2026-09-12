@@ -13,28 +13,28 @@
           "id": "app-1",
           "name": "Burrata al Forno",
           "description": "Burrata tibia al horno, confit de tomates cherry, aceite de albahaca y pan de campo a la parrilla.",
-          "price": 14,
+          "price": 560,
           "tags": ["Vegetariano"]
         },
         {
           "id": "app-2",
           "name": "Nudos de Ajo",
           "description": "Nudos de masa amasados a mano, pincelados con manteca de ajo y parmesano, servidos con salsa marinara.",
-          "price": 9,
+          "price": 360,
           "tags": ["Vegetariano", "Popular"]
         },
         {
           "id": "app-3",
           "name": "Ensalada Caprese",
           "description": "Tomates heirloom, mozzarella fresca, albahaca y reducción de balsámico.",
-          "price": 12,
+          "price": 480,
           "tags": ["Vegetariano", "Sin gluten"]
         },
         {
           "id": "app-4",
           "name": "Tabla de Fiambres",
           "description": "Fiambres curados, quesos estacionados, aceitunas marinadas, morrones asados y crostinis.",
-          "price": 18,
+          "price": 720,
           "tags": []
         }
       ]
@@ -47,42 +47,42 @@
           "id": "piz-1",
           "name": "Margherita",
           "description": "Tomate San Marzano, mozzarella fresca, albahaca y aceite de oliva extra virgen.",
-          "price": 16,
+          "price": 640,
           "tags": ["Vegetariano", "Popular"]
         },
         {
           "id": "piz-2",
           "name": "Pepperoni",
           "description": "Doble pepperoni, mozzarella baja en humedad, tomate San Marzano y orégano.",
-          "price": 18,
+          "price": 720,
           "tags": ["Popular"]
         },
         {
           "id": "piz-3",
           "name": "Quattro Formaggi",
           "description": "Mozzarella, gorgonzola, fontina y parmesano con un toque de miel.",
-          "price": 19,
+          "price": 760,
           "tags": ["Vegetariano"]
         },
         {
           "id": "piz-4",
           "name": "Funghi e Tartufo",
           "description": "Hongos silvestres, mozzarella, taleggio y aceite de trufa negra.",
-          "price": 21,
+          "price": 840,
           "tags": ["Vegetariano", "Nuevo"]
         },
         {
           "id": "piz-5",
           "name": "Diavola",
           "description": "Soppressata picante, chile calabrés, mozzarella y tomate San Marzano.",
-          "price": 19,
+          "price": 760,
           "tags": ["Picante"]
         },
         {
           "id": "piz-6",
           "name": "Vegetale",
           "description": "Zucchini, morrones asados, cebolla morada, alcaucil y mozzarella.",
-          "price": 18,
+          "price": 720,
           "tags": ["Vegano"]
         }
       ]
@@ -95,28 +95,28 @@
           "id": "des-1",
           "name": "Tiramisú",
           "description": "Vainillas embebidas en café espresso, crema de mascarpone y cacao.",
-          "price": 9,
+          "price": 360,
           "tags": ["Vegetariano"]
         },
         {
           "id": "des-2",
           "name": "Cannoli",
           "description": "Canutos crocantes rellenos de ricota dulce y chips de chocolate.",
-          "price": 8,
+          "price": 320,
           "tags": ["Vegetariano"]
         },
         {
           "id": "des-3",
           "name": "Affogato",
           "description": "Helado de vainilla bañado con un shot de espresso caliente.",
-          "price": 7,
+          "price": 280,
           "tags": ["Vegetariano", "Sin gluten"]
         },
         {
           "id": "des-4",
           "name": "Calzone de Nutella",
           "description": "Masa a la leña doblada, rellena con Nutella tibia y espolvoreada con azúcar impalpable.",
-          "price": 10,
+          "price": 400,
           "tags": ["Vegetariano", "Popular"]
         }
       ]
@@ -129,35 +129,35 @@
           "id": "drk-1",
           "name": "San Pellegrino",
           "description": "Agua mineral natural con gas, 500ml.",
-          "price": 4,
+          "price": 160,
           "tags": ["Vegano", "Sin gluten"]
         },
         {
           "id": "drk-2",
           "name": "Soda Italiana",
           "description": "Jarabe casero con soda. Consultá el sabor del día.",
-          "price": 5,
+          "price": 200,
           "tags": ["Vegano", "Sin gluten"]
         },
         {
           "id": "drk-3",
           "name": "Vino Tinto de la Casa",
           "description": "Un tinto italiano rotativo por copa, elegido por nuestro sommelier.",
-          "price": 11,
+          "price": 440,
           "tags": []
         },
         {
           "id": "drk-4",
           "name": "Cerveza Artesanal",
           "description": "Chopp local rotativo. Consultale a tu mozo cuál es la de hoy.",
-          "price": 7,
+          "price": 280,
           "tags": []
         },
         {
           "id": "drk-5",
           "name": "Espresso",
           "description": "Doble shot, preparado al momento.",
-          "price": 3,
+          "price": 120,
           "tags": ["Vegano", "Sin gluten"]
         }
       ]

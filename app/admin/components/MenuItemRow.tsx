@@ -78,13 +78,13 @@ export function MenuItemRow({
               required
             />
           </Field>
-          <Field label="Precio (USD)" htmlFor={`price-${item.id}`}>
+          <Field label="Precio (UYU)" htmlFor={`price-${item.id}`}>
             <TextInput
               id={`price-${item.id}`}
               name="price"
               type="number"
               min="0"
-              step="0.01"
+              step="1"
               defaultValue={item.price}
               required
             />
@@ -147,7 +147,7 @@ export function MenuItemRow({
           {item.description}
         </p>
         <p className="mt-1.5 text-sm font-medium tabular-nums text-ink">
-          ${item.price.toFixed(2)}
+          $ {item.price.toLocaleString("es-UY")}
         </p>
       </div>
       <div className="flex shrink-0 gap-2">

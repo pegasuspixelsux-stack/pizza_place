@@ -51,15 +51,15 @@ export function AddMenuItemForm({
             placeholder="Ej: Margherita"
           />
         </Field>
-        <Field label="Precio (USD)" htmlFor="new-price">
+        <Field label="Precio (UYU)" htmlFor="new-price">
           <TextInput
             id="new-price"
             name="price"
             type="number"
             min="0"
-            step="0.01"
+            step="1"
             required
-            placeholder="16"
+            placeholder="640"
           />
         </Field>
       </div>

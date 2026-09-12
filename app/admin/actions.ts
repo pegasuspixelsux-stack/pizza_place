@@ -152,7 +152,10 @@ const menuItemSchema = z.object({
     .trim()
     .min(1, "La descripción es obligatoria.")
     .max(300),
-  price: z.coerce.number().min(0, "El precio debe ser 0 o mayor.").max(999),
+  price: z.coerce
+    .number()
+    .min(0, "El precio debe ser 0 o mayor.")
+    .max(99999, "El precio es demasiado alto."),
   tags: z.string().trim().max(200).optional(),
 });
 
