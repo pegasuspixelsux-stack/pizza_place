@@ -6,8 +6,9 @@ import type { FooterHours } from "@/lib/types";
 
 /**
  * An iOS-style toggle switch used purely as a status indicator (not
- * interactive): the knob slides to the right on a green track when the
- * restaurant is currently open, and to the left on red when it's closed.
+ * interactive): a green pill with the knob pushed to the right reads
+ * "Abierto"; a red pill with the knob pushed to the left reads "Cerrado".
+ * Sized to match the hero's CTA buttons (h-11) on every breakpoint.
  * `initialOpen` is computed server-side so there's no flash on load; the
  * client then keeps it fresh with a periodic re-check.
  */
@@ -28,25 +29,19 @@ export function OpenStatusBadge({
   }, [hours]);
 
   return (
-    <div className="flex items-center gap-2.5">
+    <div
+      role="status"
+      className={`inline-flex h-11 shrink-0 items-center gap-2 rounded-full transition-colors duration-300 ${
+        open
+          ? "flex-row-reverse bg-[#34c759] pr-1.5 pl-4"
+          : "bg-[#ff3b30] pr-4 pl-1.5"
+      }`}
+    >
       <span
         aria-hidden="true"
-        className={`relative inline-flex h-7 w-12 shrink-0 items-center rounded-full transition-colors duration-300 ${
-          open ? "bg-[#34c759]" : "bg-[#ff3b30]"
-        }`}
-      >
-        <span
-          className={`absolute h-5 w-5 rounded-full bg-white shadow-[0_1px_3px_rgba(0,0,0,0.3)] transition-all duration-300 ease-out ${
-            open ? "left-[26px]" : "left-1"
-          }`}
-        />
-      </span>
-      <span
-        role="status"
-        className={`text-sm font-medium ${
-          open ? "text-[#30d158]" : "text-[#ff453a]"
-        }`}
-      >
+        className="h-8 w-8 shrink-0 rounded-full bg-white shadow-[0_1px_3px_rgba(0,0,0,0.3)] transition-all duration-300 ease-out"
+      />
+      <span className="text-sm font-semibold text-white">
         {open ? "Abierto" : "Cerrado"}
       </span>
     </div>
