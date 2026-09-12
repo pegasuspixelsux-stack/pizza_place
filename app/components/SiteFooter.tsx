@@ -22,7 +22,8 @@ export function SiteFooter({ footer }: { footer: FooterData }) {
 
           <div>
             <h3 className="text-sm font-medium tracking-wide text-ink">Visitanos</h3>
-            <p className="mt-4 text-sm leading-relaxed text-ink-muted">
+            <p className="mt-4 text-sm font-medium text-ink">Bianco Pizzeria</p>
+            <p className="mt-1 text-sm leading-relaxed text-ink-muted">
               {footer.address}
             </p>
           </div>
