@@ -11,7 +11,7 @@ type Tab = "hero" | "menu" | "footer";
 const TABS: { id: Tab; label: string }[] = [
   { id: "hero", label: "Portada" },
   { id: "menu", label: "Menú" },
-  { id: "footer", label: "Pie de página y contacto" },
+  { id: "footer", label: "Contacto" },
 ];
 
 export function AdminDashboard({ data }: { data: SiteData }) {
@@ -19,7 +19,7 @@ export function AdminDashboard({ data }: { data: SiteData }) {
 
   return (
     <div>
-      <div className="mb-8">
+      <div className="mb-5">
         <h1 className="text-2xl font-semibold tracking-tight text-ink">
           Panel
         </h1>
@@ -28,21 +28,25 @@ export function AdminDashboard({ data }: { data: SiteData }) {
         </p>
       </div>
 
-      <nav className="mb-8 flex gap-1 rounded-full border border-line bg-surface p-1">
-        {TABS.map((t) => (
-          <button
-            key={t.id}
-            type="button"
-            onClick={() => setTab(t.id)}
-            className={`flex-1 rounded-full px-4 py-2 text-sm font-medium transition-colors ${
-              tab === t.id
-                ? "bg-ink text-canvas"
-                : "text-ink-muted hover:text-ink"
-            }`}
-          >
-            {t.label}
-          </button>
-        ))}
+      {/* iOS-style segmented control: muted track, active segment reads as
+          a raised white pill rather than a heavy filled bubble. */}
+      <nav className="sticky top-0 z-20 -mx-6 mb-6 bg-canvas/85 px-6 py-3 backdrop-blur sm:-mx-8 sm:px-8">
+        <div className="flex gap-0.5 rounded-full bg-track p-1">
+          {TABS.map((t) => (
+            <button
+              key={t.id}
+              type="button"
+              onClick={() => setTab(t.id)}
+              className={`flex-1 rounded-full px-3 py-1.5 text-sm font-medium transition-all duration-150 ${
+                tab === t.id
+                  ? "bg-surface text-ink shadow-[0_1px_3px_rgba(0,0,0,0.12)]"
+                  : "text-ink-muted hover:text-ink"
+              }`}
+            >
+              {t.label}
+            </button>
+          ))}
+        </div>
       </nav>
 
       {tab === "hero" && <HeroEditor hero={data.hero} />}

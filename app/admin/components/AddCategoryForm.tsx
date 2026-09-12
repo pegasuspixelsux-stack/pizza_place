@@ -1,9 +1,9 @@
 "use client";
 
-import { useActionState, useRef, useState } from "react";
+import { useActionState, useRef } from "react";
 import type { MenuCategory } from "@/lib/types";
 import { addCategoryAction, type CategoryActionState } from "../actions";
-import { FormMessage } from "./FormControls";
+import { FormMessage, PrimaryButton, TextInput } from "./FormControls";
 
 const initialState: CategoryActionState = {};
 
@@ -12,7 +12,6 @@ export function AddCategoryForm({
 }: {
   onAdded: (categories: MenuCategory[]) => void;
 }) {
-  const [open, setOpen] = useState(false);
   const formRef = useRef<HTMLFormElement>(null);
 
   const [state, formAction, pending] = useActionState(
@@ -21,53 +20,39 @@ export function AddCategoryForm({
       if (result.categories) {
         onAdded(result.categories);
         formRef.current?.reset();
-        setOpen(false);
       }
       return result;
     },
     initialState
   );
 
-  if (!open) {
-    return (
-      <button
-        type="button"
-        onClick={() => setOpen(true)}
-        className="rounded-full border border-dashed border-line px-4 py-2 text-sm font-medium text-ink-muted transition-colors hover:border-ink-faint hover:text-ink"
-      >
-        + Nueva categoría
-      </button>
-    );
-  }
-
   return (
-    <div className="flex flex-col gap-2">
-      <form ref={formRef} action={formAction} className="flex items-center gap-2">
-        <input
+    <div>
+      <p className="text-sm font-medium text-ink">Nueva categoría</p>
+      <form
+        ref={formRef}
+        action={formAction}
+        className="mt-3 flex items-center gap-2"
+      >
+        <TextInput
           name="name"
           type="text"
-          autoFocus
-          placeholder="Nombre de la categoría"
+          placeholder="Ej: Especiales"
           required
           maxLength={60}
-          className="rounded-full border border-line bg-canvas px-4 py-2 text-sm text-ink outline-none transition-colors focus:border-ink-faint"
+          className="flex-1"
         />
-        <button
+        <PrimaryButton
           type="submit"
-          disabled={pending}
-          className="rounded-full bg-ink px-4 py-2 text-sm font-medium text-canvas transition-opacity hover:opacity-90 disabled:opacity-50"
+          pending={pending}
+          pendingLabel="Agregando…"
         >
-          {pending ? "Agregando…" : "Agregar"}
-        </button>
-        <button
-          type="button"
-          onClick={() => setOpen(false)}
-          className="rounded-full border border-line px-4 py-2 text-sm font-medium text-ink-muted transition-colors hover:border-ink-faint hover:text-ink"
-        >
-          Cancelar
-        </button>
+          Agregar
+        </PrimaryButton>
       </form>
-      <FormMessage error={state.error} success={state.success} />
+      <div className="mt-2">
+        <FormMessage error={state.error} success={state.success} />
+      </div>
     </div>
   );
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import { useActionState, useRef } from "react";
+import { useActionState, useRef, useState } from "react";
 import type { MenuCategory } from "@/lib/types";
 import { importMenuAction, type MenuImportActionState } from "../actions";
 import { FormMessage, PrimaryButton } from "./FormControls";
@@ -13,6 +13,8 @@ export function ImportMenuForm({
   onImported: (categories: MenuCategory[]) => void;
 }) {
   const formRef = useRef<HTMLFormElement>(null);
+  const [fileName, setFileName] = useState<string | null>(null);
+  const [showHelp, setShowHelp] = useState(false);
 
   const [state, formAction, pending] = useActionState(
     async (prevState: MenuImportActionState, formData: FormData) => {
@@ -20,6 +22,7 @@ export function ImportMenuForm({
       if (result.categories) {
         onImported(result.categories);
         formRef.current?.reset();
+        setFileName(null);
       }
       return result;
     },
@@ -27,11 +30,9 @@ export function ImportMenuForm({
   );
 
   return (
-    <div className="rounded-2xl border border-dashed border-line bg-canvas p-5">
-      <div className="flex flex-wrap items-center justify-between gap-3">
-        <p className="text-sm font-medium text-ink">
-          Importar o exportar el menú
-        </p>
+    <div>
+      <div className="flex items-center justify-between gap-3">
+        <p className="text-sm font-medium text-ink">Importar productos</p>
         <div className="flex items-center gap-3 text-xs font-medium text-accent">
           <a
             href="/admin/menu-export?format=xlsx"
@@ -48,45 +49,58 @@ export function ImportMenuForm({
         </div>
       </div>
       <p className="mt-1 text-xs leading-relaxed text-ink-muted">
-        Subí un archivo <code className="font-mono">.xlsx</code> o{" "}
-        <code className="font-mono">.csv</code> con las columnas{" "}
-        <code className="font-mono">Categoria</code>,{" "}
-        <code className="font-mono">Nombre</code>,{" "}
-        <code className="font-mono">Descripcion</code>,{" "}
-        <code className="font-mono">Precio</code> y, opcionalmente,{" "}
-        <code className="font-mono">Etiquetas</code> (separadas por comas).
-        Categoria debe coincidir con el nombre de una categoría que ya exista
-        en el menú (creá categorías nuevas primero, con el botón &quot;+
-        Nueva categoría&quot; de abajo). Los productos importados{" "}
-        <strong>reemplazan</strong> a los existentes en cada categoría que
-        aparezca en el archivo. ¿No tenés un archivo a mano? Exportá el menú
-        actual y usalo como plantilla.
+        Subí un .xlsx o .csv para reemplazar productos por categoría.{" "}
+        <button
+          type="button"
+          onClick={() => setShowHelp((v) => !v)}
+          className="font-medium text-ink underline decoration-line underline-offset-2"
+        >
+          {showHelp ? "Ocultar detalles" : "¿Cómo funciona?"}
+        </button>
       </p>
 
-      <form
-        ref={formRef}
-        action={formAction}
-        className="mt-4 flex flex-wrap items-center gap-3"
-      >
-        <input
-          name="file"
-          type="file"
-          accept=".xlsx,.csv"
-          required
-          className="text-xs text-ink-muted file:mr-3 file:rounded-full file:border file:border-line file:bg-surface file:px-3 file:py-1.5 file:text-xs file:font-medium file:text-ink"
-        />
-        <PrimaryButton
-          type="submit"
-          pending={pending}
-          pendingLabel="Importando…"
+      {showHelp && (
+        <p className="mt-2 rounded-xl bg-canvas p-3 text-xs leading-relaxed text-ink-muted">
+          Columnas requeridas: <code className="font-mono">Categoria</code>,{" "}
+          <code className="font-mono">Nombre</code>,{" "}
+          <code className="font-mono">Precio</code>; opcionales{" "}
+          <code className="font-mono">Descripcion</code> y{" "}
+          <code className="font-mono">Etiquetas</code> (separadas por comas).
+          Categoria debe coincidir con el nombre de una categoría existente.
+          Los productos importados <strong>reemplazan</strong> a los
+          existentes en cada categoría que aparezca en el archivo. ¿No tenés
+          un archivo a mano? Exportá el menú actual y usalo como plantilla.
+        </p>
+      )}
+
+      <form ref={formRef} action={formAction} className="mt-3 flex flex-col gap-3">
+        <label
+          htmlFor="menu-import-file"
+          className="flex cursor-pointer flex-col items-center justify-center gap-1 rounded-2xl border border-dashed border-line bg-canvas px-4 py-6 text-center transition-colors hover:border-ink-faint"
         >
+          <span className="text-sm font-medium text-ink">
+            {fileName ?? "Elegí un archivo .xlsx o .csv"}
+          </span>
+          <span className="text-xs text-ink-muted">
+            Tocá para buscar en tu dispositivo
+          </span>
+          <input
+            id="menu-import-file"
+            name="file"
+            type="file"
+            accept=".xlsx,.csv"
+            required
+            className="sr-only"
+            onChange={(e) => setFileName(e.target.files?.[0]?.name ?? null)}
+          />
+        </label>
+
+        <FormMessage error={state.error} success={state.success} />
+
+        <PrimaryButton type="submit" pending={pending} pendingLabel="Importando…">
           Importar
         </PrimaryButton>
       </form>
-
-      <div className="mt-3">
-        <FormMessage error={state.error} success={state.success} />
-      </div>
     </div>
   );
 }

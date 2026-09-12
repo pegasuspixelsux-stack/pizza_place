@@ -8,15 +8,24 @@ import {
   type MenuItemActionState,
 } from "../actions";
 import {
-  Field,
+  FieldGroup,
   FormMessage,
+  GroupedField,
   PrimaryButton,
-  SecondaryButton,
   TextArea,
   TextInput,
 } from "./FormControls";
+import { Sheet } from "./Sheet";
 
 const initialState: MenuItemActionState = {};
+
+function ChevronIcon() {
+  return (
+    <svg viewBox="0 0 20 20" className="h-4 w-4 shrink-0 fill-current">
+      <path d="M7.3 4.3a1 1 0 0 1 1.4 0l5 5a1 1 0 0 1 0 1.4l-5 5a1 1 0 0 1-1.4-1.4L11.6 10 7.3 5.7a1 1 0 0 1 0-1.4Z" />
+    </svg>
+  );
+}
 
 export function MenuItemRow({
   categoryId,
@@ -29,7 +38,7 @@ export function MenuItemRow({
   onSaved: (item: MenuItem) => void;
   onDeleted: () => void;
 }) {
-  const [editing, setEditing] = useState(false);
+  const [open, setOpen] = useState(false);
   const [isDeleting, startDeleteTransition] = useTransition();
 
   const [state, formAction, pending] = useActionState(
@@ -42,7 +51,7 @@ export function MenuItemRow({
       );
       if (result.item) {
         onSaved(result.item);
-        setEditing(false);
+        setOpen(false);
       }
       return result;
     },
@@ -60,113 +69,101 @@ export function MenuItemRow({
     startDeleteTransition(async () => {
       await deleteMenuItemAction(categoryId, item.id);
       onDeleted();
+      setOpen(false);
     });
   }
 
-  if (editing) {
-    return (
-      <form
-        action={formAction}
-        className="flex flex-col gap-4 rounded-2xl border border-line bg-canvas p-5"
-      >
-        <div className="grid gap-4 sm:grid-cols-[2fr_1fr]">
-          <Field label="Nombre" htmlFor={`name-${item.id}`}>
-            <TextInput
-              id={`name-${item.id}`}
-              name="name"
-              defaultValue={item.name}
-              required
-            />
-          </Field>
-          <Field label="Precio (UYU)" htmlFor={`price-${item.id}`}>
-            <TextInput
-              id={`price-${item.id}`}
-              name="price"
-              type="number"
-              min="0"
-              step="1"
-              defaultValue={item.price}
-              required
-            />
-          </Field>
-        </div>
-        <Field label="Descripción" htmlFor={`description-${item.id}`}>
-          <TextArea
-            id={`description-${item.id}`}
-            name="description"
-            defaultValue={item.description}
-            rows={2}
-            required
-          />
-        </Field>
-        <Field
-          label="Etiquetas (separadas por comas)"
-          htmlFor={`tags-${item.id}`}
-        >
-          <TextInput
-            id={`tags-${item.id}`}
-            name="tags"
-            defaultValue={item.tags?.join(", ")}
-            placeholder="Vegetariano, Picante, Sin gluten"
-          />
-        </Field>
-
-        <FormMessage error={state.error} success={state.success} />
-
-        <div className="flex gap-3">
-          <PrimaryButton type="submit" pending={pending}>
-            Guardar
-          </PrimaryButton>
-          <SecondaryButton type="button" onClick={() => setEditing(false)}>
-            Cancelar
-          </SecondaryButton>
-        </div>
-      </form>
-    );
-  }
-
   return (
-    <div className="flex items-start justify-between gap-4 rounded-2xl border border-line p-5">
-      <div className="min-w-0">
-        <div className="flex flex-wrap items-baseline gap-x-2">
-          <h4 className="font-medium text-ink">{item.name}</h4>
+    <>
+      <button
+        type="button"
+        onClick={() => setOpen(true)}
+        className="flex w-full items-center justify-between gap-3 px-4 py-3.5 text-left transition-colors hover:bg-canvas"
+      >
+        <div className="min-w-0">
+          <p className="truncate font-medium text-ink">{item.name}</p>
           {item.tags && item.tags.length > 0 && (
-            <span className="flex flex-wrap gap-1.5">
-              {item.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="rounded-full border border-line px-2 py-0.5 text-[0.6875rem] font-medium text-ink-muted"
-                >
-                  {tag}
-                </span>
-              ))}
-            </span>
+            <p className="mt-0.5 truncate text-xs text-ink-muted">
+              {item.tags.join(" · ")}
+            </p>
           )}
         </div>
-        <p className="mt-1.5 text-sm leading-relaxed text-ink-muted">
-          {item.description}
-        </p>
-        <p className="mt-1.5 text-sm font-medium tabular-nums text-ink">
-          $ {item.price.toLocaleString("es-UY")}
-        </p>
-      </div>
-      <div className="flex shrink-0 gap-2">
-        <button
-          type="button"
-          onClick={() => setEditing(true)}
-          className="rounded-full border border-line px-3.5 py-1.5 text-xs font-medium text-ink-muted transition-colors hover:border-ink-faint hover:text-ink"
-        >
-          Editar
-        </button>
-        <button
-          type="button"
-          onClick={handleDelete}
-          disabled={isDeleting}
-          className="rounded-full border border-line px-3.5 py-1.5 text-xs font-medium text-ink-muted transition-colors hover:border-accent hover:text-accent disabled:opacity-50"
-        >
-          {isDeleting ? "Eliminando…" : "Eliminar"}
-        </button>
-      </div>
-    </div>
+        <div className="flex shrink-0 items-center gap-2 text-ink-faint">
+          <span className="font-medium tabular-nums text-ink">
+            $ {item.price.toLocaleString("es-UY")}
+          </span>
+          <ChevronIcon />
+        </div>
+      </button>
+
+      <Sheet open={open} onClose={() => setOpen(false)} title={item.name}>
+        <form action={formAction} className="flex flex-col gap-5">
+          <FieldGroup>
+            <GroupedField label="Nombre" htmlFor={`name-${item.id}`}>
+              <TextInput
+                plain
+                id={`name-${item.id}`}
+                name="name"
+                defaultValue={item.name}
+                required
+              />
+            </GroupedField>
+            <GroupedField label="Precio (UYU)" htmlFor={`price-${item.id}`}>
+              <TextInput
+                plain
+                id={`price-${item.id}`}
+                name="price"
+                type="number"
+                min="0"
+                step="1"
+                defaultValue={item.price}
+                required
+              />
+            </GroupedField>
+            <GroupedField
+              label="Descripción"
+              htmlFor={`description-${item.id}`}
+            >
+              <TextArea
+                plain
+                id={`description-${item.id}`}
+                name="description"
+                defaultValue={item.description}
+                rows={2}
+                required
+              />
+            </GroupedField>
+            <GroupedField
+              label="Etiquetas (separadas por comas)"
+              htmlFor={`tags-${item.id}`}
+            >
+              <TextInput
+                plain
+                id={`tags-${item.id}`}
+                name="tags"
+                defaultValue={item.tags?.join(", ")}
+                placeholder="Vegetariano, Picante, Sin gluten"
+              />
+            </GroupedField>
+          </FieldGroup>
+
+          <FormMessage error={state.error} success={state.success} />
+
+          <div className="flex items-center gap-3">
+            <PrimaryButton type="submit" pending={pending} className="flex-1">
+              Guardar
+            </PrimaryButton>
+            <button
+              type="button"
+              onClick={handleDelete}
+              disabled={isDeleting}
+              className="rounded-full border border-line px-5 py-2.5 text-sm font-medium text-accent transition-colors hover:border-accent disabled:opacity-50"
+            >
+              {isDeleting ? "Eliminando…" : "Eliminar"}
+            </button>
+          </div>
+        </form>
+      </Sheet>
+    </>
   );
 }

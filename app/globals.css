@@ -3,10 +3,12 @@
 :root {
   --color-canvas: #faf9f7;
   --color-surface: #ffffff;
+  --color-track: #eeece7;
   --color-ink: #1c1c1e;
   --color-ink-muted: #6b6b70;
   --color-ink-faint: #9a9a9f;
   --color-line: #e9e7e2;
+  --color-hairline: #e9e7e2;
   --color-accent: #c1440e;
   --color-accent-ink: #fff7f2;
 }
@@ -14,10 +16,12 @@
 @theme inline {
   --color-canvas: var(--color-canvas);
   --color-surface: var(--color-surface);
+  --color-track: var(--color-track);
   --color-ink: var(--color-ink);
   --color-ink-muted: var(--color-ink-muted);
   --color-ink-faint: var(--color-ink-faint);
   --color-line: var(--color-line);
+  --color-hairline: var(--color-hairline);
   --color-accent: var(--color-accent);
   --color-accent-ink: var(--color-accent-ink);
   --font-sans: var(--font-geist-sans);
@@ -28,10 +32,12 @@
   :root {
     --color-canvas: #111113;
     --color-surface: #19191b;
+    --color-track: #1f1f22;
     --color-ink: #f2f2f3;
     --color-ink-muted: #a3a3a8;
     --color-ink-faint: #6b6b70;
     --color-line: #2a2a2d;
+    --color-hairline: #2a2a2d;
     --color-accent: #e2703a;
     --color-accent-ink: #1c0f08;
   }
@@ -44,4 +50,54 @@ body {
 
 * {
   border-color: var(--color-line);
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+@keyframes sheet-overlay-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes sheet-panel-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  @keyframes sheet-overlay-in {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  @keyframes sheet-panel-in {
+    from {
+      opacity: 1;
+      transform: none;
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
 }
