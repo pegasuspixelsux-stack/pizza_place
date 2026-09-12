@@ -17,29 +17,29 @@ export function Hero({
   const initialOpen = isRestaurantOpenNow(hours);
 
   return (
-    <section className="border-b border-line">
+    <section className="border-b border-rusty-spice-700 bg-rusty-spice-800">
       <div className="mx-auto max-w-6xl px-6 pt-5 pb-16 sm:px-8 sm:py-28 lg:py-32">
         <div className="grid items-center gap-14 lg:grid-cols-[1.1fr_0.9fr] lg:gap-20">
           <div className="max-w-xl">
-            <p className="text-sm font-medium tracking-wide text-accent">
+            <p className="text-sm font-medium tracking-wide text-orange-400">
               Bianco Pizzeria
             </p>
-            <h1 className="mt-4 text-4xl font-semibold tracking-tight text-ink sm:text-5xl lg:text-[3.25rem] lg:leading-[1.08]">
+            <h1 className="mt-4 text-4xl font-semibold tracking-tight text-orange-50 sm:text-5xl lg:text-[3.25rem] lg:leading-[1.08]">
               {hero.headline}
             </h1>
-            <p className="mt-6 text-lg leading-relaxed text-ink-muted">
+            <p className="mt-6 text-lg leading-relaxed text-rusty-spice-200">
               {hero.subtitle}
             </p>
             <div className="mt-9 flex flex-wrap items-center gap-4">
               <a
                 href="#menu"
-                className="inline-flex items-center justify-center rounded-full bg-ink px-7 py-3 text-sm font-medium text-canvas transition-all duration-200 ease-out hover:-translate-y-0.5 hover:opacity-90 active:translate-y-0"
+                className="inline-flex items-center justify-center rounded-full bg-orange-400 px-7 py-3 text-sm font-medium text-rusty-spice-950 transition-all duration-200 ease-out hover:-translate-y-0.5 hover:opacity-90 active:translate-y-0"
               >
                 Ver el menú
               </a>
               <a
                 href="#footer"
-                className="inline-flex items-center justify-center rounded-full border border-line px-7 py-3 text-sm font-medium text-ink transition-all duration-200 ease-out hover:-translate-y-0.5 hover:border-ink-faint active:translate-y-0"
+                className="inline-flex items-center justify-center rounded-full border border-rusty-spice-600 px-7 py-3 text-sm font-medium text-orange-50 transition-all duration-200 ease-out hover:-translate-y-0.5 hover:border-orange-400 active:translate-y-0"
               >
                 Horarios y ubicación
               </a>

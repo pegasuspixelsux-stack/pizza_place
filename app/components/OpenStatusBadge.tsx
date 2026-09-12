@@ -44,7 +44,7 @@ export function OpenStatusBadge({
       <span
         role="status"
         className={`text-sm font-medium ${
-          open ? "text-[#248a3d]" : "text-[#d70015]"
+          open ? "text-[#30d158]" : "text-[#ff453a]"
         }`}
       >
         {open ? "Abierto ahora" : "Cerrado ahora"}
