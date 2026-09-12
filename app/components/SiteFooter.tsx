@@ -6,6 +6,14 @@ export function SiteFooter({ footer }: { footer: FooterData }) {
       <div className="mx-auto max-w-6xl px-6 py-16 sm:px-8 sm:py-20">
         <div className="grid grid-cols-1 gap-12 sm:grid-cols-3">
           <div>
+            <h3 className="text-sm font-medium tracking-wide text-ink">Visitanos</h3>
+            <p className="mt-4 text-sm font-medium text-ink">Bianco Pizzeria</p>
+            <p className="mt-1 text-sm leading-relaxed text-ink-muted">
+              {footer.address}
+            </p>
+          </div>
+
+          <div>
             <h3 className="text-sm font-medium tracking-wide text-ink">Horarios</h3>
             <dl className="mt-4 flex flex-col gap-2">
               {footer.hours.map((entry) => (
@@ -18,14 +26,6 @@ export function SiteFooter({ footer }: { footer: FooterData }) {
                 </div>
               ))}
             </dl>
-          </div>
-
-          <div>
-            <h3 className="text-sm font-medium tracking-wide text-ink">Visitanos</h3>
-            <p className="mt-4 text-sm font-medium text-ink">Bianco Pizzeria</p>
-            <p className="mt-1 text-sm leading-relaxed text-ink-muted">
-              {footer.address}
-            </p>
           </div>
 
           <div>
