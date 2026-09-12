@@ -49,8 +49,8 @@ function CategoryBlock({ category }: { category: MenuCategory }) {
 
 export function MenuSection({ categories }: { categories: MenuCategory[] }) {
   return (
-    <section id="menu" className="border-b border-rusty-spice-700 bg-rusty-spice-800">
-      <div className="mx-auto max-w-6xl px-6 py-20 sm:px-8 sm:py-28">
+    <section id="menu" className="bg-rusty-spice-800">
+      <div className="mx-auto max-w-6xl border-b border-rusty-spice-700 px-6 py-20 sm:px-8 sm:py-28">
         <div className="max-w-xl">
           <p className="text-sm font-medium tracking-wide text-orange-400">Menú</p>
           <h2 className="mt-3 text-3xl font-semibold tracking-tight text-orange-50 sm:text-4xl">

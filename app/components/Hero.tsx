@@ -17,8 +17,8 @@ export function Hero({
   const initialOpen = isRestaurantOpenNow(hours);
 
   return (
-    <section className="border-b border-rusty-spice-700 bg-rusty-spice-800">
-      <div className="mx-auto max-w-6xl px-6 pt-5 pb-16 sm:px-8 sm:py-28 lg:py-32">
+    <section className="bg-rusty-spice-800">
+      <div className="mx-auto max-w-6xl border-b border-rusty-spice-700 px-6 pt-5 pb-16 sm:px-8 sm:py-28 lg:py-32">
         <div className="grid items-center gap-14 lg:grid-cols-[1.1fr_0.9fr] lg:gap-20">
           <div className="max-w-xl">
             <p className="text-sm font-medium tracking-wide text-orange-400">
