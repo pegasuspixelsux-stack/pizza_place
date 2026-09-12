@@ -6,7 +6,14 @@ import { z } from "zod";
 import { verifySession } from "@/lib/auth/dal";
 import { deleteSession } from "@/lib/auth/session";
 import { getSiteData, saveSiteData, saveUploadedImage } from "@/lib/data";
-import type { CategoryId, FooterData, HeroData, MenuItem } from "@/lib/types";
+import { parseMenuWorkbook } from "@/lib/menuImport";
+import type {
+  CategoryId,
+  FooterData,
+  HeroData,
+  MenuCategory,
+  MenuItem,
+} from "@/lib/types";
 
 export interface ActionState {
   error?: string;
@@ -23,6 +30,10 @@ export interface FooterActionState extends ActionState {
 
 export interface MenuItemActionState extends ActionState {
   item?: MenuItem;
+}
+
+export interface MenuImportActionState extends ActionState {
+  categories?: MenuCategory[];
 }
 
 function revalidateSite() {
@@ -259,4 +270,131 @@ export async function deleteMenuItemAction(
 
   await saveSiteData(data);
   revalidateSite();
+}
+
+// ---------------------------------------------------------------------------
+// Bulk import from Excel/CSV
+// ---------------------------------------------------------------------------
+
+const MAX_IMPORT_FILE_SIZE = 5 * 1024 * 1024;
+
+export async function importMenuAction(
+  _prevState: MenuImportActionState,
+  formData: FormData
+): Promise<MenuImportActionState> {
+  await verifySession();
+
+  const file = formData.get("file");
+  if (!(file instanceof File) || file.size === 0) {
+    return { error: "Elegí un archivo para importar." };
+  }
+  if (!/\.(xlsx|csv)$/i.test(file.name)) {
+    return { error: "Subí un archivo .xlsx o .csv." };
+  }
+  if (file.size > MAX_IMPORT_FILE_SIZE) {
+    return { error: "El archivo debe pesar menos de 5MB." };
+  }
+
+  const data = await getSiteData();
+  const buffer = await file.arrayBuffer();
+  const { rows, errors } = await parseMenuWorkbook(
+    buffer,
+    file.name,
+    data.menu
+  );
+
+  if (errors.length > 0) {
+    const shown = errors.slice(0, 5).join(" ");
+    const rest =
+      errors.length > 5 ? ` (+${errors.length - 5} más)` : "";
+    return { error: `No se importó nada. ${shown}${rest}` };
+  }
+
+  if (rows.length === 0) {
+    return { error: "El archivo no tiene filas para importar." };
+  }
+
+  const touchedCategories = new Set(rows.map((r) => r.category));
+
+  for (const categoryId of touchedCategories) {
+    const category = data.menu.find((c) => c.id === categoryId);
+    if (!category) continue;
+    category.items = rows
+      .filter((r) => r.category === categoryId)
+      .map((r) => r.item);
+  }
+
+  await saveSiteData(data);
+  revalidateSite();
+
+  const categoryCount = touchedCategories.size;
+  return {
+    success: `Se importaron ${rows.length} producto${
+      rows.length === 1 ? "" : "s"
+    } en ${categoryCount} categoría${categoryCount === 1 ? "" : "s"}.`,
+    categories: data.menu,
+  };
+}
+
+// ---------------------------------------------------------------------------
+// Categories
+// ---------------------------------------------------------------------------
+
+export interface CategoryActionState extends ActionState {
+  categories?: MenuCategory[];
+}
+
+const categoryNameSchema = z
+  .string()
+  .trim()
+  .min(1, "El nombre de la categoría es obligatorio.")
+  .max(60, "El nombre es demasiado largo.");
+
+function slugify(name: string): string {
+  const slug = name
+    .trim()
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[̀-ͯ]/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+  return slug || "categoria";
+}
+
+export async function addCategoryAction(
+  _prevState: CategoryActionState,
+  formData: FormData
+): Promise<CategoryActionState> {
+  await verifySession();
+
+  const parsed = categoryNameSchema.safeParse(formData.get("name"));
+  if (!parsed.success) {
+    return { error: parsed.error.issues[0]?.message ?? "Datos inválidos." };
+  }
+
+  const name = parsed.data;
+  const data = await getSiteData();
+
+  if (
+    data.menu.some((c) => c.name.trim().toLowerCase() === name.toLowerCase())
+  ) {
+    return { error: `Ya existe una categoría llamada "${name}".` };
+  }
+
+  const baseSlug = slugify(name);
+  let id = baseSlug;
+  let suffix = 2;
+  while (data.menu.some((c) => c.id === id)) {
+    id = `${baseSlug}-${suffix}`;
+    suffix += 1;
+  }
+
+  data.menu.push({ id, name, items: [] });
+  await saveSiteData(data);
+  revalidateSite();
+
+  return {
+    success: `Se agregó la categoría "${name}".`,
+    categories: data.menu,
+  };
 }

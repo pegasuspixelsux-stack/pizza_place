@@ -2,7 +2,9 @@
 
 import { useState } from "react";
 import type { CategoryId, MenuCategory, MenuItem } from "@/lib/types";
+import { AddCategoryForm } from "./AddCategoryForm";
 import { AddMenuItemForm } from "./AddMenuItemForm";
+import { ImportMenuForm } from "./ImportMenuForm";
 import { MenuItemRow } from "./MenuItemRow";
 
 export function MenuEditor({
@@ -37,6 +39,10 @@ export function MenuEditor({
         Agregá, editá o eliminá productos en cada categoría.
       </p>
 
+      <div className="mt-6">
+        <ImportMenuForm onImported={setCategories} />
+      </div>
+
       <div className="mt-6 flex flex-wrap gap-2">
         {categories.map((category) => (
           <button
@@ -55,6 +61,15 @@ export function MenuEditor({
             </span>
           </button>
         ))}
+        <AddCategoryForm
+          onAdded={(updated) => {
+            setCategories(updated);
+            const added = updated.find(
+              (c) => !categories.some((existing) => existing.id === c.id)
+            );
+            if (added) setActiveId(added.id);
+          }}
+        />
       </div>
 
       <div className="mt-6 flex flex-col gap-4">
