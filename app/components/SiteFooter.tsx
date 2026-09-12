@@ -59,7 +59,7 @@ export function SiteFooter({ footer }: { footer: FooterData }) {
           </div>
         </div>
 
-        <div className="mt-14 flex flex-col gap-4 border-t border-rusty-spice-700 pt-8 text-xs text-rusty-spice-400 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-14 flex flex-col gap-4 border-t border-rusty-spice-700/40 pt-8 text-xs text-rusty-spice-400 sm:flex-row sm:items-center sm:justify-between">
           <p>{footer.copyright}</p>
           <div className="flex items-center gap-4">
             <a
