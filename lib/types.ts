@@ -30,6 +30,7 @@ export interface FooterData {
   address: string;
   phone: string;
   email: string;
+  whatsapp: string;
   copyright: string;
 }
 

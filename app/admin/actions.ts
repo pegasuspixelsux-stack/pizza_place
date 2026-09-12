@@ -96,6 +96,7 @@ const footerSchema = z.object({
   address: z.string().trim().min(1, "La dirección es obligatoria.").max(200),
   phone: z.string().trim().min(1, "El teléfono es obligatorio.").max(40),
   email: z.string().trim().email("Ingresá un correo electrónico válido."),
+  whatsapp: z.string().trim().max(40).optional().default(""),
   copyright: z
     .string()
     .trim()
@@ -119,6 +120,7 @@ export async function updateFooterAction(
     address: formData.get("address"),
     phone: formData.get("phone"),
     email: formData.get("email"),
+    whatsapp: formData.get("whatsapp"),
     copyright: formData.get("copyright"),
   });
 

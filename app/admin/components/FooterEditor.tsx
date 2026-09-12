@@ -118,6 +118,16 @@ export function FooterEditor({ footer: initialFooter }: { footer: FooterData }) 
               required
             />
           </Field>
+          <Field label="WhatsApp" htmlFor="whatsapp">
+            <TextInput
+              id="whatsapp"
+              name="whatsapp"
+              type="tel"
+              defaultValue={footer.whatsapp}
+              key={`whatsapp-${footer.whatsapp}`}
+              placeholder="+598 99 123 456"
+            />
+          </Field>
           <Field label="Texto de derechos de autor" htmlFor="copyright">
             <TextInput
               id="copyright"
@@ -128,6 +138,12 @@ export function FooterEditor({ footer: initialFooter }: { footer: FooterData }) 
             />
           </Field>
         </div>
+
+        <p className="-mt-2 text-xs text-ink-muted">
+          El número de WhatsApp habilita el ícono flotante del sitio: al
+          hacer clic, los clientes te escriben directo a ese número. Dejalo
+          vacío para ocultar el ícono.
+        </p>
 
         <FormMessage error={state.error} success={state.success} />
 
