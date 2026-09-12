@@ -50,19 +50,22 @@ function CategoryBlock({ category }: { category: MenuCategory }) {
 export function MenuSection({ categories }: { categories: MenuCategory[] }) {
   return (
     <section id="menu" className="bg-rusty-spice-800">
-      <div className="mx-auto max-w-6xl border-b border-rusty-spice-700 px-6 py-20 sm:px-8 sm:py-28">
-        <div className="max-w-xl">
-          <p className="text-sm font-medium tracking-wide text-orange-400">Menú</p>
-          <h2 className="mt-3 text-3xl font-semibold tracking-tight text-orange-50 sm:text-4xl">
-            Qué estamos sirviendo
-          </h2>
-        </div>
+      <div className="mx-auto max-w-6xl px-6 sm:px-8">
+        <div className="py-20 sm:py-28">
+          <div className="max-w-xl">
+            <p className="text-sm font-medium tracking-wide text-orange-400">Menú</p>
+            <h2 className="mt-3 text-3xl font-semibold tracking-tight text-orange-50 sm:text-4xl">
+              Qué estamos sirviendo
+            </h2>
+          </div>
 
-        <div className="mt-14 grid grid-cols-1 gap-x-16 gap-y-16 lg:grid-cols-2 lg:gap-y-20">
-          {categories.map((category) => (
-            <CategoryBlock key={category.id} category={category} />
-          ))}
+          <div className="mt-14 grid grid-cols-1 gap-x-16 gap-y-16 lg:grid-cols-2 lg:gap-y-20">
+            {categories.map((category) => (
+              <CategoryBlock key={category.id} category={category} />
+            ))}
+          </div>
         </div>
+        <div className="border-b border-rusty-spice-700" />
       </div>
     </section>
   );
