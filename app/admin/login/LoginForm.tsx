@@ -1,6 +1,6 @@
 "use client";
 
-import { useActionState } from "react";
+import { useActionState, useState } from "react";
 import { loginAction, type LoginState } from "./actions";
 
 const initialState: LoginState = {};
@@ -10,6 +10,7 @@ export function LoginForm() {
     loginAction,
     initialState
   );
+  const [showHelp, setShowHelp] = useState(false);
 
   return (
     <form action={formAction} className="flex flex-col gap-5">
@@ -28,9 +29,18 @@ export function LoginForm() {
       </div>
 
       <div className="flex flex-col gap-1.5">
-        <label htmlFor="password" className="text-sm font-medium text-ink">
-          Password
-        </label>
+        <div className="flex items-baseline justify-between">
+          <label htmlFor="password" className="text-sm font-medium text-ink">
+            Password
+          </label>
+          <button
+            type="button"
+            onClick={() => setShowHelp((v) => !v)}
+            className="text-xs font-medium text-ink-muted transition-colors hover:text-ink"
+          >
+            Forgot password?
+          </button>
+        </div>
         <input
           id="password"
           name="password"
@@ -40,6 +50,19 @@ export function LoginForm() {
           className="rounded-xl border border-line bg-canvas px-4 py-2.5 text-sm text-ink outline-none transition-colors focus:border-ink-faint"
         />
       </div>
+
+      {showHelp && (
+        <p className="rounded-xl border border-line bg-canvas p-3 text-xs leading-relaxed text-ink-muted">
+          There&rsquo;s no self-serve reset for this admin account. To set a
+          new password, run{" "}
+          <code className="rounded bg-surface px-1 py-0.5 font-mono">
+            npm run hash-password -- &quot;new-password&quot;
+          </code>{" "}
+          and update <code className="font-mono">ADMIN_PASSWORD_HASH</code>{" "}
+          in your environment variables (Vercel project settings, or{" "}
+          <code className="font-mono">.env.local</code> for local dev).
+        </p>
+      )}
 
       {state.error && (
         <p role="alert" className="text-sm text-accent">

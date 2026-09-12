@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { LoginForm } from "./LoginForm";
 
 export const metadata: Metadata = {
@@ -7,9 +8,16 @@ export const metadata: Metadata = {
 
 export default function AdminLoginPage() {
   return (
-    <div className="flex min-h-screen flex-1 items-center justify-center bg-canvas px-6">
+    <div className="flex min-h-screen flex-1 items-center justify-center bg-canvas px-6 py-16">
       <div className="w-full max-w-sm">
-        <div className="mb-8 text-center">
+        <Link
+          href="/"
+          className="inline-flex items-center gap-1.5 text-sm font-medium text-ink-muted transition-colors hover:text-ink"
+        >
+          <span aria-hidden="true">←</span> Volver al sitio
+        </Link>
+
+        <div className="mb-8 mt-8 text-center">
           <p className="text-sm font-medium tracking-wide text-accent">
             Bianco Pizzeria
           </p>
