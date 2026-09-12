@@ -49,9 +49,19 @@ export function SiteFooter({ footer }: { footer: FooterData }) {
 
         <div className="mt-14 flex flex-col gap-4 border-t border-line pt-8 text-xs text-ink-faint sm:flex-row sm:items-center sm:justify-between">
           <p>{footer.copyright}</p>
-          <a href="/admin" className="transition-colors hover:text-ink-muted">
-            Acceso del personal
-          </a>
+          <div className="flex items-center gap-4">
+            <a
+              href="https://pegasuspixels.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-colors hover:text-ink-muted"
+            >
+              Diseño by Pegasus Pixels
+            </a>
+            <a href="/admin" className="transition-colors hover:text-ink-muted">
+              Acceso del personal
+            </a>
+          </div>
         </div>
       </div>
     </footer>
