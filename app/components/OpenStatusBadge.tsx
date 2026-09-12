@@ -47,7 +47,7 @@ export function OpenStatusBadge({
           open ? "text-[#30d158]" : "text-[#ff453a]"
         }`}
       >
-        {open ? "Abierto ahora" : "Cerrado ahora"}
+        {open ? "Abierto" : "Cerrado"}
       </span>
     </div>
   );

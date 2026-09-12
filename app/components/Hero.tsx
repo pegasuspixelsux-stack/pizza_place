@@ -43,6 +43,9 @@ export function Hero({
               >
                 Horarios y ubicación
               </a>
+              <div className="hidden lg:flex lg:items-center lg:py-2">
+                <OpenStatusBadge hours={hours} initialOpen={initialOpen} />
+              </div>
             </div>
           </div>
 
@@ -68,7 +71,9 @@ export function Hero({
                 />
               )}
             </div>
-            <OpenStatusBadge hours={hours} initialOpen={initialOpen} />
+            <div className="lg:hidden">
+              <OpenStatusBadge hours={hours} initialOpen={initialOpen} />
+            </div>
           </div>
         </div>
         <div className="border-b border-rusty-spice-700" />
